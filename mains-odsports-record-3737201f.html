@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>od体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #2a2d32;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* 开场 hero 区 — 简洁留白 */
+        .hero {
+            margin: 1.5rem 0 2.8rem 0;
+            padding-left: 0.2rem;
+        }
+
+        .hero .opening {
+            font-size: 1.7rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            color: #1f2329;
+            border-left: 4px solid #3a7ca5;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .hero .opening strong {
+            font-weight: 500;
+            color: #1f4e6f;
+        }
+
+        /* 卡片通用设计 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6eaef;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1f3b4f;
+            margin-bottom: 1rem;
+            letter-spacing: 0.01em;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 0.6rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #3d434a;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 — 温和的符号 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-list li {
+            flex: 1 1 200px;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: #2b3b47;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            color: #5885a6;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        /* 内联链接样式 — 自然融入 */
+        a {
+            color: #1f5e85;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f5e85;
+            color: #0e3b57;
+        }
+
+        /* 场景区块 — 用细边框区分 */
+        .scene-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scene-item {
+            background: #fafcfd;
+            border: 1px solid #dfe5ec;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            font-size: 0.95rem;
+            color: #38434f;
+        }
+
+        .scene-item strong {
+            color: #1f4e6f;
+            font-weight: 500;
+        }
+
+        /* 提示 / FAQ 摘要混合 */
+        .note-box {
+            background: #f7fafc;
+            border-left: 4px solid #8aaec2;
+            padding: 1rem 1.4rem;
+            border-radius: 8px;
+            margin: 1.2rem 0 0.2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .note-box p {
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-mini {
+            margin-top: 0.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+            border: 1px solid #e2e9f0;
+            border-radius: 10px;
+            padding: 0.3rem 1rem;
+            background: white;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 450;
+            color: #1f3b4f;
+            padding: 0.4rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #6f8fa6;
+        }
+
+        .faq-mini details p {
+            margin: 0.3rem 0 0.6rem 0;
+            color: #3f4a57;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            text-align: center;
+            padding: 2rem 0.5rem 1.5rem;
+            color: #4f5d6b;
+            border-top: 1px solid #dce3eb;
+            margin-top: 1.5rem;
+        }
+
+        .closing p {
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .hero .opening {
+                font-size: 1.4rem;
+                padding-left: 1rem;
+            }
+
+            .feature-list li {
+                flex: 1 1 100%;
+            }
+
+            .scene-item {
+                padding: 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero">
+        <div class="opening">
+            一个站点，<br>慢慢建成，<strong>值得细看</strong>。
+        </div>
+    </div>
+
+    <!-- 承接段落：站点介绍与可信说明 -->
+    <div class="card">
+        <h2>从一次浏览说起</h2>
+        <p>
+            大约两年前，一位常看体育资讯的朋友发来一条链接，说这个站的内容编排挺克制，没有那些浮夸的弹窗和诱导。我点进去看了看，版面干净，资讯更新也稳定。后来慢慢成了固定去的地方。
+        </p>
+        <p>
+            这就是 <a href="https://mains-odsports.com">od体育</a> 给我的最初印象。它不是一个急于证明自己的平台，而像一位熟悉体育的朋友，安静地整理着赛况、数据和观察。没有喧哗的套路，只有持续的内容。
+        </p>
+        <p>
+            可能正因如此，它反而更容易获得信任。不是靠口号，而是靠一点一滴的信息呈现。这几年下来，身边的人偶尔聊起体育站点，我总会自然地提起 <a href="https://mains-odsports.com">od体育</a>，因为它确实没有偏离过最初的那种踏实感。
+        </p>
+    </div>
+
+    <!-- 特点列表（温和、实质） -->
+    <div class="card">
+        <h2>几个让人记住的地方</h2>
+        <ul class="feature-list">
+            <li>信息更新节奏稳定，不刻意制造焦虑</li>
+            <li>版面疏朗，阅读时眼睛不累</li>
+            <li>赛果和赛程归类清晰，查找不费劲</li>
+            <li>没有夸张的营销话术，界面克制</li>
+            <li>移动端适配自然，随时可以看一眼</li>
+            <li>内容角度多元，不只有热门联赛</li>
+        </ul>
+        <div class="note-box" style="margin-top:1.8rem;">
+            <p>这些特点听起来可能普通，但如果一个站点能长期保持以上几点，就已经比很多同类网站更值得花时间。</p>
+        </div>
+    </div>
+
+    <!-- 场景段落（叙述感） -->
+    <div class="card">
+        <h2>什么情况下会打开它</h2>
+        <div class="scene-wrap">
+            <div class="scene-item">
+                <strong>周末早晨</strong> —— 冲杯咖啡，先看看昨晚的比分汇总，再瞄一眼下午的赛程。不用刷很多页面，信息就在那里。
+            </div>
+            <div class="scene-item">
+                <strong>通勤路上</strong> —— 手机打开 <a href="https://mains-odsports.com">od体育</a>，快速扫一眼战报和排名变化。加载快，流量也省。
+            </div>
+            <div class="scene-item">
+                <strong>跟朋友聊球之前</strong> —— 怕记错数据？花两分钟确认一下球员 stats 或近期交锋记录，聊天时心里更有底。
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 额外提示 (温和) -->
+    <div class="card">
+        <h2>一些常见的小问题</h2>
+        <div class="faq-mini">
+            <details>
+                <summary>站内资讯主要覆盖哪些项目？</summary>
+                <p>足球、篮球、网球、电竞以及一些综合性赛事都会涉及，日常更新以主流联赛为主，偶尔也有小众赛事的数据整理。</p>
+            </details>
+            <details>
+                <summary>页面上的内容可信度如何？</summary>
+                <p>该站的数据和资讯大多采自公开可信的源渠道，同时人工进行二次校对。虽然无法保证百分之百无疏漏，但偏差率很低。</p>
+            </details>
+            <details>
+                <summary>是否需要注册或付费？</summary>
+                <p>浏览资讯和查看赛果完全免费，也无需注册。部分深度数据或历史统计可能需要简单登录，但没有任何隐藏收费。</p>
+            </details>
+        </div>
+        <div class="note-box" style="margin-top:1.2rem;">
+            <p>💡 如果你习惯通过一个干净稳定的入口获取体育消息，不妨把 <a href="https://mains-odsports.com">od体育</a> 加入书签。它不会打扰你，但总能在你需要时给出信息。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>一个站点能持续运营并保持自己的节奏，已经不容易。<br>希望它继续这样，安静而可靠。</p>
+    </div>
+
+</div>
+</body>
+</html>
